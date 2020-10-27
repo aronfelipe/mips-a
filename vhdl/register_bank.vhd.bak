@@ -1,0 +1,41 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity register_bank is
+    generic
+    (
+        data_length        : natural := 8;  -- Precisa talvez atualizar TODO.
+        register_address_length : natural := 3   -- Resulta em 2^3=8 posicoes
+    );
+
+-- Leitura e escrita de um registrador.
+    port
+    (
+        clock : in std_logic;
+        address : in std_logic_vector((register_address_length-1) downto 0);
+        register_bank_data_in : in std_logic_vector((data_length-1) downto 0);
+        enable : in std_logic := '0';
+        register_bank_data_out : out std_logic_vector((data_length -1) downto 0)
+    );
+end entity;
+
+architecture rtl of register_bank is
+
+    subtype word is std_logic_vector((data_length-1) downto 0);
+    type memory_local is array(2**register_address_length-1 downto 0) of word;
+
+    -- Declaracao dos registradores:
+    shared variable register_local : memory_local;
+
+begin
+    process(clk) is
+    begin
+        if (rising_edge(clk)) then
+            if (enable = '1') then
+                register_local(to_integer(unsigned(address))) := register_bank_data_in;
+            end if;
+        end if;
+    end process;
+	 register_bank_data_out <= register_local(to_integer(unsigned(address)));
+end architecture;

@@ -1,0 +1,1547 @@
+Analysis & Synthesis report for mips
+Tue Oct 27 17:40:11 2020
+Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Registers Removed During Synthesis
+  9. General Register Statistics
+ 10. Parameter Settings for User Entity Instance: Top-level Entity: |cpu
+ 11. Parameter Settings for User Entity Instance: control_unit_rom:control_unit_rom
+ 12. Parameter Settings for User Entity Instance: data_flow:data_flow
+ 13. Parameter Settings for User Entity Instance: data_flow:data_flow|generic_register:pc
+ 14. Parameter Settings for User Entity Instance: data_flow:data_flow|adder:adder
+ 15. Parameter Settings for User Entity Instance: data_flow:data_flow|rom:rom
+ 16. Parameter Settings for User Entity Instance: data_flow:data_flow|ula:ula
+ 17. Parameter Settings for User Entity Instance: data_flow:data_flow|register_bank:register_bank
+ 18. Port Connectivity Checks: "data_flow:data_flow|ula:ula"
+ 19. Port Connectivity Checks: "data_flow:data_flow|rom:rom"
+ 20. Port Connectivity Checks: "data_flow:data_flow|adder:adder"
+ 21. Port Connectivity Checks: "data_flow:data_flow|generic_register:pc"
+ 22. Post-Synthesis Netlist Statistics for Top Partition
+ 23. Elapsed Time Per Partition
+ 24. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2020  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++-------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                  ;
++---------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Tue Oct 27 17:40:11 2020       ;
+; Quartus Prime Version           ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
+; Revision Name                   ; mips                                        ;
+; Top-level Entity Name           ; cpu                                         ;
+; Family                          ; Cyclone V                                   ;
+; Logic utilization (in ALMs)     ; N/A                                         ;
+; Total registers                 ; 9                                           ;
+; Total pins                      ; 37                                          ;
+; Total virtual pins              ; 0                                           ;
+; Total block memory bits         ; 0                                           ;
+; Total DSP Blocks                ; 0                                           ;
+; Total HSSI RX PCSs              ; 0                                           ;
+; Total HSSI PMA RX Deserializers ; 0                                           ;
+; Total HSSI TX PCSs              ; 0                                           ;
+; Total HSSI PMA TX Serializers   ; 0                                           ;
+; Total PLLs                      ; 0                                           ;
+; Total DLLs                      ; 0                                           ;
++---------------------------------+---------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                             ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                          ; Setting            ; Default Value      ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                          ; 5CEBA4F23C7        ;                    ;
+; Top-level entity name                                                           ; cpu                ; mips               ;
+; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
+; VHDL Show LMF Mapping Messages                                                  ; Off                ;                    ;
+; VHDL Version                                                                    ; VHDL_2008          ; VHDL_1993          ;
+; Use smart compilation                                                           ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation                ; On                 ; On                 ;
+; Enable compact report table                                                     ; Off                ; Off                ;
+; Restructure Multiplexers                                                        ; Auto               ; Auto               ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                ; Off                ;
+; Create Debugging Nodes for IP Cores                                             ; Off                ; Off                ;
+; Preserve fewer node names                                                       ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                                   ; Enable             ; Enable             ;
+; Verilog Version                                                                 ; Verilog_2001       ; Verilog_2001       ;
+; State Machine Processing                                                        ; Auto               ; Auto               ;
+; Safe State Machine                                                              ; Off                ; Off                ;
+; Extract Verilog State Machines                                                  ; On                 ; On                 ;
+; Extract VHDL State Machines                                                     ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                               ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                      ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                                  ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                         ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                       ; On                 ; On                 ;
+; Parallel Synthesis                                                              ; On                 ; On                 ;
+; DSP Block Balancing                                                             ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                              ; On                 ; On                 ;
+; Power-Up Don't Care                                                             ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                                    ; Off                ; Off                ;
+; Remove Duplicate Registers                                                      ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                            ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                          ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                           ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                       ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                            ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                             ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                                  ; Off                ; Off                ;
+; Optimization Technique                                                          ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                              ; 70                 ; 70                 ;
+; Auto Carry Chains                                                               ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                            ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off                ; Off                ;
+; Auto ROM Replacement                                                            ; On                 ; On                 ;
+; Auto RAM Replacement                                                            ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                      ; On                 ; On                 ;
+; Auto Shift Register Replacement                                                 ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                                   ; On                 ; On                 ;
+; Strict RAM Replacement                                                          ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                               ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                           ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                                   ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                             ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                               ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                         ; On                 ; On                 ;
+; Report Parameter Settings                                                       ; On                 ; On                 ;
+; Report Source Assignments                                                       ; On                 ; On                 ;
+; Report Connectivity Checks                                                      ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off                ; Off                ;
+; Synchronization Register Chain Length                                           ; 3                  ; 3                  ;
+; Power Optimization During Synthesis                                             ; Normal compilation ; Normal compilation ;
+; HDL message level                                                               ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                                 ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100                ; 100                ;
+; Clock MUX Protection                                                            ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                     ; Off                ; Off                ;
+; Block Design Naming                                                             ; Auto               ; Auto               ;
+; SDC constraint protection                                                       ; Off                ; Off                ;
+; Synthesis Effort                                                                ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                            ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                              ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                     ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                          ; On                 ; On                 ;
+; Automatic Parallel Synthesis                                                    ; On                 ; On                 ;
+; Partial Reconfiguration Bitstream ID                                            ; Off                ; Off                ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 4           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processors 3-4         ;   0.0%      ;
++----------------------------+-------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                            ;
++----------------------------------+-----------------+-----------------+----------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                     ; Library ;
++----------------------------------+-----------------+-----------------+----------------------------------------------------------------------------------+---------+
+; control_unit_rom.vhd             ; yes             ; User VHDL File  ; /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/control_unit_rom.vhd ;         ;
+; data_flow.vhd                    ; yes             ; User VHDL File  ; /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/data_flow.vhd        ;         ;
+; rom.vhd                          ; yes             ; User VHDL File  ; /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/rom.vhd              ;         ;
+; generic_register.vhd             ; yes             ; User VHDL File  ; /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/generic_register.vhd ;         ;
+; adder.vhd                        ; yes             ; User VHDL File  ; /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/adder.vhd            ;         ;
+; register_bank.vhd                ; yes             ; User VHDL File  ; /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/register_bank.vhd    ;         ;
+; ula.vhd                          ; yes             ; User VHDL File  ; /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/ula.vhd              ;         ;
+; cpu.vhd                          ; yes             ; User VHDL File  ; /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/cpu.vhd              ;         ;
++----------------------------------+-----------------+-----------------+----------------------------------------------------------------------------------+---------+
+
+
++-----------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary               ;
++---------------------------------------------+-------------+
+; Resource                                    ; Usage       ;
++---------------------------------------------+-------------+
+; Estimate of Logic utilization (ALMs needed) ; 6           ;
+;                                             ;             ;
+; Combinational ALUT usage for logic          ; 11          ;
+;     -- 7 input functions                    ; 0           ;
+;     -- 6 input functions                    ; 0           ;
+;     -- 5 input functions                    ; 2           ;
+;     -- 4 input functions                    ; 0           ;
+;     -- <=3 input functions                  ; 9           ;
+;                                             ;             ;
+; Dedicated logic registers                   ; 9           ;
+;                                             ;             ;
+; I/O pins                                    ; 37          ;
+;                                             ;             ;
+; Total DSP Blocks                            ; 0           ;
+;                                             ;             ;
+; Maximum fan-out node                        ; clock~input ;
+; Maximum fan-out                             ; 9           ;
+; Total fan-out                               ; 83          ;
+; Average fan-out                             ; 0.88        ;
++---------------------------------------------+-------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                   ;
++-----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------+------------------+--------------+
+; Compilation Hierarchy Node  ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                          ; Entity Name      ; Library Name ;
++-----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------+------------------+--------------+
+; |cpu                        ; 11 (0)              ; 9 (0)                     ; 0                 ; 0          ; 37   ; 0            ; |cpu                                         ; cpu              ; work         ;
+;    |data_flow:data_flow|    ; 11 (0)              ; 9 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |cpu|data_flow:data_flow                     ; data_flow        ; work         ;
+;       |adder:adder|         ; 8 (8)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |cpu|data_flow:data_flow|adder:adder         ; adder            ; work         ;
+;       |generic_register:pc| ; 1 (1)               ; 9 (9)                     ; 0                 ; 0          ; 0    ; 0            ; |cpu|data_flow:data_flow|generic_register:pc ; generic_register ; work         ;
+;       |rom:rom|             ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |cpu|data_flow:data_flow|rom:rom             ; rom              ; work         ;
++-----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------+------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++----------------------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                                     ;
++------------------------------------------------------------------+---------------------------------------------------------------------+
+; Register name                                                    ; Reason for Removal                                                  ;
++------------------------------------------------------------------+---------------------------------------------------------------------+
+; data_flow:data_flow|generic_register:pc|register_out[0]          ; Merged with data_flow:data_flow|generic_register:pc|register_out[1] ;
+; data_flow:data_flow|generic_register:pc|register_out[1]          ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~70   ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~71   ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~72   ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~73   ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~74   ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~75   ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~76   ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~77   ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~78   ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~79   ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~80   ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~81   ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~82   ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~83   ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~84   ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~85   ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~86   ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~87   ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~88   ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~89   ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~90   ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~91   ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~92   ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~93   ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~94   ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~95   ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~96   ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~97   ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~98   ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~99   ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~100  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~101  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~134  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~135  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~136  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~137  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~138  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~139  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~140  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~141  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~142  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~143  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~144  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~145  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~146  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~147  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~148  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~149  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~150  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~151  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~152  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~153  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~154  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~155  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~156  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~157  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~158  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~159  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~160  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~161  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~162  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~163  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~164  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~165  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~166  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~167  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~168  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~169  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~170  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~171  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~172  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~173  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~174  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~175  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~176  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~177  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~178  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~179  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~180  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~181  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~182  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~183  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~184  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~185  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~186  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~187  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~188  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~189  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~190  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~191  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~192  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~193  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~194  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~195  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~196  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~197  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~198  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~199  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~200  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~201  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~202  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~203  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~204  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~205  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~206  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~207  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~208  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~209  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~210  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~211  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~212  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~213  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~214  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~215  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~216  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~217  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~218  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~219  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~220  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~221  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~222  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~223  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~224  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~225  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~226  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~227  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~228  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~229  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~230  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~231  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~232  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~233  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~234  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~235  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~236  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~237  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~238  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~239  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~240  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~241  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~242  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~243  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~244  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~245  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~246  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~247  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~248  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~249  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~250  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~251  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~252  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~253  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~254  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~255  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~256  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~257  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~258  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~259  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~260  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~261  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~262  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~263  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~264  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~265  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~266  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~267  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~268  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~269  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~270  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~271  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~272  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~273  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~274  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~275  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~276  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~277  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~278  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~279  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~280  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~281  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~282  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~283  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~284  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~285  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~286  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~287  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~288  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~289  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~290  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~291  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~292  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~293  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~294  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~295  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~296  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~297  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~298  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~299  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~300  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~301  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~302  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~303  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~304  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~305  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~306  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~307  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~308  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~309  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~310  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~311  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~312  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~313  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~314  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~315  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~316  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~317  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~318  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~319  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~320  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~321  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~322  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~323  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~324  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~325  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~326  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~327  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~328  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~329  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~330  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~331  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~332  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~333  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~334  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~335  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~336  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~337  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~338  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~339  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~340  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~341  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~342  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~343  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~344  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~345  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~346  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~347  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~348  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~349  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~350  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~351  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~352  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~353  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~354  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~355  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~356  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~357  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~358  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~359  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~360  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~361  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~362  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~363  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~364  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~365  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~366  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~367  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~368  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~369  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~370  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~371  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~372  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~373  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~374  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~375  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~376  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~377  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~378  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~379  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~380  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~381  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~382  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~383  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~384  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~385  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~386  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~387  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~388  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~389  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~390  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~391  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~392  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~393  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~394  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~395  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~396  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~397  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~398  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~399  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~400  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~401  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~402  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~403  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~404  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~405  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~406  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~407  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~408  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~409  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~410  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~411  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~412  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~413  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~414  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~415  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~416  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~417  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~418  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~419  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~420  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~421  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~422  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~423  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~424  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~425  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~426  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~427  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~428  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~429  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~430  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~431  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~432  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~433  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~434  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~435  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~436  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~437  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~438  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~439  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~440  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~441  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~442  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~443  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~444  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~445  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~446  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~447  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~448  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~449  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~450  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~451  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~452  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~453  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~454  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~455  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~456  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~457  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~458  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~459  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~460  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~461  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~462  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~463  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~464  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~465  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~466  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~467  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~468  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~469  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~470  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~471  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~472  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~473  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~474  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~475  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~476  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~477  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~478  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~479  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~480  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~481  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~482  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~483  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~484  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~485  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~486  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~487  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~488  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~489  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~490  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~491  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~492  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~493  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~494  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~495  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~496  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~497  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~498  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~499  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~500  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~501  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~502  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~503  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~504  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~505  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~506  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~507  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~508  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~509  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~510  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~511  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~512  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~513  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~514  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~515  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~516  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~517  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~518  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~519  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~520  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~521  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~522  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~523  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~524  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~525  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~526  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~527  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~528  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~529  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~530  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~531  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~532  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~533  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~534  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~535  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~536  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~537  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~538  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~539  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~540  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~541  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~542  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~543  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~544  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~545  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~546  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~547  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~548  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~549  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~582  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~583  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~584  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~585  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~586  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~587  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~588  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~589  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~590  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~591  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~592  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~593  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~594  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~595  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~596  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~597  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~598  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~599  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~600  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~601  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~602  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~603  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~604  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~605  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~606  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~607  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~608  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~609  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~610  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~611  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~612  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~613  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~646  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~647  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~648  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~649  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~650  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~651  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~652  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~653  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~654  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~655  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~656  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~657  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~658  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~659  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~660  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~661  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~662  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~663  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~664  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~665  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~666  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~667  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~668  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~669  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~670  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~671  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~672  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~673  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~674  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~675  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~676  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~677  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~678  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~679  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~680  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~681  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~682  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~683  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~684  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~685  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~686  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~687  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~688  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~689  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~690  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~691  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~692  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~693  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~694  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~695  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~696  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~697  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~698  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~699  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~700  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~701  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~702  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~703  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~704  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~705  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~706  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~707  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~708  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~709  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~710  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~711  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~712  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~713  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~714  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~715  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~716  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~717  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~718  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~719  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~720  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~721  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~722  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~723  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~724  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~725  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~726  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~727  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~728  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~729  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~730  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~731  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~732  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~733  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~734  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~735  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~736  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~737  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~738  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~739  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~740  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~741  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~742  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~743  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~744  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~745  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~746  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~747  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~748  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~749  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~750  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~751  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~752  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~753  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~754  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~755  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~756  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~757  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~758  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~759  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~760  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~761  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~762  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~763  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~764  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~765  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~766  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~767  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~768  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~769  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~770  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~771  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~772  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~773  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~774  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~775  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~776  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~777  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~778  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~779  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~780  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~781  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~782  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~783  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~784  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~785  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~786  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~787  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~788  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~789  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~790  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~791  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~792  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~793  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~794  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~795  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~796  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~797  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~798  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~799  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~800  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~801  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~802  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~803  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~804  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~805  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~806  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~807  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~808  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~809  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~810  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~811  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~812  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~813  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~814  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~815  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~816  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~817  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~818  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~819  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~820  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~821  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~822  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~823  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~824  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~825  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~826  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~827  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~828  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~829  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~830  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~831  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~832  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~833  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~834  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~835  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~836  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~837  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~838  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~839  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~840  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~841  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~842  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~843  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~844  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~845  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~846  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~847  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~848  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~849  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~850  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~851  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~852  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~853  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~854  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~855  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~856  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~857  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~858  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~859  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~860  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~861  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~862  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~863  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~864  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~865  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~866  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~867  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~868  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~869  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~870  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~871  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~872  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~873  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~874  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~875  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~876  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~877  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~878  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~879  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~880  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~881  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~882  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~883  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~884  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~885  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~886  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~887  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~888  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~889  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~890  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~891  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~892  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~893  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~894  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~895  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~896  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~897  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~898  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~899  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~900  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~901  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~902  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~903  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~904  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~905  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~906  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~907  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~908  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~909  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~910  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~911  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~912  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~913  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~914  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~915  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~916  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~917  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~918  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~919  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~920  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~921  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~922  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~923  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~924  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~925  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~926  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~927  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~928  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~929  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~930  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~931  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~932  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~933  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~934  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~935  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~936  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~937  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~938  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~939  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~940  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~941  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~942  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~943  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~944  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~945  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~946  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~947  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~948  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~949  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~950  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~951  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~952  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~953  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~954  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~955  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~956  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~957  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~958  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~959  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~960  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~961  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~962  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~963  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~964  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~965  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~966  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~967  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~968  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~969  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~970  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~971  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~972  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~973  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~974  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~975  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~976  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~977  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~978  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~979  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~980  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~981  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~982  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~983  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~984  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~985  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~986  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~987  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~988  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~989  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~990  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~991  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~992  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~993  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~994  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~995  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~996  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~997  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~998  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~999  ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~1000 ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~1001 ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~1002 ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~1003 ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~1004 ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~1005 ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~1006 ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~1007 ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~1008 ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~1009 ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~1010 ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~1011 ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~1012 ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~1013 ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~1014 ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~1015 ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~1016 ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~1017 ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~1018 ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~1019 ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~1020 ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~1021 ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~1022 ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~1023 ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~1024 ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~1025 ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~1026 ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~1027 ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~1028 ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~1029 ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~1030 ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~1031 ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~1032 ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~1033 ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~1034 ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~1035 ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~1036 ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~1037 ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~1038 ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~1039 ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~1040 ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~1041 ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~1042 ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~1043 ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~1044 ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~1045 ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~1046 ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~1047 ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~1048 ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~1049 ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~1050 ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~1051 ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~1052 ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~1053 ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~1054 ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~1055 ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~1056 ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~1057 ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~1058 ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~1059 ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~1060 ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~1061 ; Lost fanout                                                         ;
+; data_flow:data_flow|register_bank:register_bank|registrador~38   ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~102  ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~550  ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~614  ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~39   ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~103  ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~551  ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~615  ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~69   ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~133  ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~581  ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~645  ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~68   ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~132  ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~580  ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~644  ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~67   ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~131  ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~579  ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~643  ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~66   ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~130  ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~578  ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~642  ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~65   ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~129  ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~577  ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~641  ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~64   ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~128  ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~576  ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~640  ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~63   ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~127  ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~575  ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~639  ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~62   ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~126  ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~574  ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~638  ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~61   ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~125  ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~573  ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~637  ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~60   ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~124  ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~572  ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~636  ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~59   ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~123  ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~571  ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~635  ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~58   ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~122  ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~570  ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~634  ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~57   ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~121  ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~569  ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~633  ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~56   ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~120  ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~568  ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~632  ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~55   ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~119  ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~567  ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~631  ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~54   ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~118  ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~566  ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~630  ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~53   ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~117  ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~565  ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~629  ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~52   ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~116  ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~564  ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~628  ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~51   ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~115  ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~563  ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~627  ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~50   ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~114  ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~562  ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~626  ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~49   ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~113  ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~561  ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~625  ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~48   ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~112  ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~560  ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~624  ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~47   ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~111  ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~559  ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~623  ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~46   ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~110  ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~558  ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~622  ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~45   ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~109  ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~557  ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~621  ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~44   ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~108  ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~556  ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~620  ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~43   ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~107  ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~555  ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~619  ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~42   ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~106  ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~554  ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~618  ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~41   ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~105  ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~553  ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~617  ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~40   ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~104  ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~552  ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|register_bank:register_bank|registrador~616  ; Stuck at GND due to stuck port data_in                              ;
+; data_flow:data_flow|generic_register:pc|register_out[11..31]     ; Lost fanout                                                         ;
+; Total Number of Removed Registers = 1047                         ;                                                                     ;
++------------------------------------------------------------------+---------------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 9     ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++---------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |cpu ;
++----------------+-------+--------------------------------------------+
+; Parameter Name ; Value ; Type                                       ;
++----------------+-------+--------------------------------------------+
+; data_length    ; 32    ; Signed Integer                             ;
++----------------+-------+--------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: control_unit_rom:control_unit_rom ;
++----------------+-------+-------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                  ;
++----------------+-------+-------------------------------------------------------+
+; data_width     ; 4     ; Signed Integer                                        ;
+; address_width  ; 6     ; Signed Integer                                        ;
++----------------+-------+-------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: data_flow:data_flow ;
++----------------+-------+-----------------------------------------+
+; Parameter Name ; Value ; Type                                    ;
++----------------+-------+-----------------------------------------+
+; data_length    ; 32    ; Signed Integer                          ;
++----------------+-------+-----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: data_flow:data_flow|generic_register:pc ;
++----------------+-------+-------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                        ;
++----------------+-------+-------------------------------------------------------------+
+; data_length    ; 32    ; Signed Integer                                              ;
++----------------+-------+-------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: data_flow:data_flow|adder:adder ;
++----------------+-------+-----------------------------------------------------+
+; Parameter Name ; Value ; Type                                                ;
++----------------+-------+-----------------------------------------------------+
+; data_length    ; 32    ; Signed Integer                                      ;
++----------------+-------+-----------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: data_flow:data_flow|rom:rom ;
++----------------------+-------+-------------------------------------------+
+; Parameter Name       ; Value ; Type                                      ;
++----------------------+-------+-------------------------------------------+
+; data_width           ; 32    ; Signed Integer                            ;
+; address_width        ; 32    ; Signed Integer                            ;
+; memory_address_width ; 9     ; Signed Integer                            ;
++----------------------+-------+-------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: data_flow:data_flow|ula:ula ;
++----------------+-------+-------------------------------------------------+
+; Parameter Name ; Value ; Type                                            ;
++----------------+-------+-------------------------------------------------+
+; data_length    ; 32    ; Signed Integer                                  ;
++----------------+-------+-------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: data_flow:data_flow|register_bank:register_bank ;
++-------------------------+-------+------------------------------------------------------------+
+; Parameter Name          ; Value ; Type                                                       ;
++-------------------------+-------+------------------------------------------------------------+
+; data_length             ; 32    ; Signed Integer                                             ;
+; register_address_length ; 5     ; Signed Integer                                             ;
++-------------------------+-------+------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "data_flow:data_flow|ula:ula"                                                             ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port      ; Type   ; Severity ; Details                                                                             ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; zero_flag ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "data_flow:data_flow|rom:rom"                                                                        ;
++----------------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port                 ; Type   ; Severity ; Details                                                                             ;
++----------------------+--------+----------+-------------------------------------------------------------------------------------+
+; rom_data_out[31..26] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; rom_data_out[10..6]  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++----------------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------+
+; Port Connectivity Checks: "data_flow:data_flow|adder:adder" ;
++-------------------+-------+----------+----------------------+
+; Port              ; Type  ; Severity ; Details              ;
++-------------------+-------+----------+----------------------+
+; adder_in_a[31..3] ; Input ; Info     ; Stuck at GND         ;
+; adder_in_a[1..0]  ; Input ; Info     ; Stuck at GND         ;
+; adder_in_a[2]     ; Input ; Info     ; Stuck at VCC         ;
++-------------------+-------+----------+----------------------+
+
+
++---------------------------------------------------------------------+
+; Port Connectivity Checks: "data_flow:data_flow|generic_register:pc" ;
++--------+-------+----------+-----------------------------------------+
+; Port   ; Type  ; Severity ; Details                                 ;
++--------+-------+----------+-----------------------------------------+
+; enable ; Input ; Info     ; Stuck at VCC                            ;
+; reset  ; Input ; Info     ; Stuck at GND                            ;
++--------+-------+----------+-----------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; arriav_ff             ; 9                           ;
+;     plain             ; 9                           ;
+; arriav_lcell_comb     ; 13                          ;
+;     arith             ; 8                           ;
+;         1 data inputs ; 7                           ;
+;         2 data inputs ; 1                           ;
+;     normal            ; 5                           ;
+;         0 data inputs ; 2                           ;
+;         1 data inputs ; 1                           ;
+;         5 data inputs ; 2                           ;
+; boundary_port         ; 37                          ;
+;                       ;                             ;
+; Max LUT depth         ; 2.00                        ;
+; Average LUT depth     ; 1.47                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
+    Info: Processing started: Tue Oct 27 17:40:00 2020
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off mips -c mips
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file control_unit_rom.vhd
+    Info (12022): Found design unit 1: control_unit_rom-rtl File: /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/control_unit_rom.vhd Line: 19
+    Info (12023): Found entity 1: control_unit_rom File: /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/control_unit_rom.vhd Line: 8
+Info (12021): Found 2 design units, including 1 entities, in source file data_flow.vhd
+    Info (12022): Found design unit 1: data_flow-rtl File: /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/data_flow.vhd Line: 15
+    Info (12023): Found entity 1: data_flow File: /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/data_flow.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file rom.vhd
+    Info (12022): Found design unit 1: rom-rtl File: /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/rom.vhd Line: 17
+    Info (12023): Found entity 1: rom File: /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/rom.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file generic_register.vhd
+    Info (12022): Found design unit 1: generic_register-rtl File: /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/generic_register.vhd Line: 16
+    Info (12023): Found entity 1: generic_register File: /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/generic_register.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file adder.vhd
+    Info (12022): Found design unit 1: adder-rtl File: /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/adder.vhd Line: 19
+    Info (12023): Found entity 1: adder File: /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/adder.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file register_bank.vhd
+    Info (12022): Found design unit 1: register_bank-rtl File: /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/register_bank.vhd Line: 30
+    Info (12023): Found entity 1: register_bank File: /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/register_bank.vhd Line: 7
+Info (12021): Found 2 design units, including 1 entities, in source file ula.vhd
+    Info (12022): Found design unit 1: ula-rtl File: /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/ula.vhd Line: 20
+    Info (12023): Found entity 1: ula File: /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/ula.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file cpu.vhd
+    Info (12022): Found design unit 1: cpu-rtl File: /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/cpu.vhd Line: 14
+    Info (12023): Found entity 1: cpu File: /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/cpu.vhd Line: 5
+Info (12127): Elaborating entity "cpu" for the top level hierarchy
+Info (12128): Elaborating entity "control_unit_rom" for hierarchy "control_unit_rom:control_unit_rom" File: /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/cpu.vhd Line: 21
+Info (12128): Elaborating entity "data_flow" for hierarchy "data_flow:data_flow" File: /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/cpu.vhd Line: 24
+Warning (10036): Verilog HDL or VHDL warning at data_flow.vhd(21): object "zero_flag" assigned a value but never read File: /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/data_flow.vhd Line: 21
+Info (12128): Elaborating entity "generic_register" for hierarchy "data_flow:data_flow|generic_register:pc" File: /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/data_flow.vhd Line: 40
+Info (12128): Elaborating entity "adder" for hierarchy "data_flow:data_flow|adder:adder" File: /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/data_flow.vhd Line: 43
+Info (12128): Elaborating entity "rom" for hierarchy "data_flow:data_flow|rom:rom" File: /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/data_flow.vhd Line: 46
+Warning (10541): VHDL Signal Declaration warning at rom.vhd(20): used implicit default value for signal "data_rom" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/rom.vhd Line: 20
+Info (12128): Elaborating entity "ula" for hierarchy "data_flow:data_flow|ula:ula" File: /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/data_flow.vhd Line: 49
+Info (12128): Elaborating entity "register_bank" for hierarchy "data_flow:data_flow|register_bank:register_bank" File: /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/data_flow.vhd Line: 53
+Info (276014): Found 2 instances of uninferred RAM logic
+    Info (276007): RAM logic "data_flow:data_flow|register_bank:register_bank|registrador" is uninferred due to asynchronous read logic File: /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/register_bank.vhd Line: 36
+    Info (276004): RAM logic "control_unit_rom:control_unit_rom|data_out_memory_rom" is uninferred due to inappropriate RAM size File: /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/control_unit_rom.vhd Line: 48
+Warning (113031): 1 out of 512 addresses are reinitialized. The latest initialized data will replace the existing data. There are 1 warnings found, and 1 warnings are reported. File: /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/ROMcontent.mif Line: 1
+    Warning (113030): Memory Initialization File address 1 is reinitialized File: /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/ Line: 11
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "ula_out[0]" is stuck at GND File: /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/cpu.vhd Line: 9
+    Warning (13410): Pin "ula_out[1]" is stuck at GND File: /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/cpu.vhd Line: 9
+    Warning (13410): Pin "ula_out[2]" is stuck at VCC File: /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/cpu.vhd Line: 9
+    Warning (13410): Pin "ula_out[3]" is stuck at GND File: /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/cpu.vhd Line: 9
+    Warning (13410): Pin "ula_out[4]" is stuck at GND File: /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/cpu.vhd Line: 9
+    Warning (13410): Pin "ula_out[5]" is stuck at GND File: /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/cpu.vhd Line: 9
+    Warning (13410): Pin "ula_out[6]" is stuck at GND File: /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/cpu.vhd Line: 9
+    Warning (13410): Pin "ula_out[7]" is stuck at GND File: /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/cpu.vhd Line: 9
+    Warning (13410): Pin "ula_out[8]" is stuck at GND File: /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/cpu.vhd Line: 9
+    Warning (13410): Pin "ula_out[9]" is stuck at GND File: /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/cpu.vhd Line: 9
+    Warning (13410): Pin "ula_out[10]" is stuck at GND File: /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/cpu.vhd Line: 9
+    Warning (13410): Pin "ula_out[11]" is stuck at GND File: /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/cpu.vhd Line: 9
+    Warning (13410): Pin "ula_out[12]" is stuck at GND File: /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/cpu.vhd Line: 9
+    Warning (13410): Pin "ula_out[13]" is stuck at GND File: /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/cpu.vhd Line: 9
+    Warning (13410): Pin "ula_out[14]" is stuck at GND File: /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/cpu.vhd Line: 9
+    Warning (13410): Pin "ula_out[15]" is stuck at GND File: /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/cpu.vhd Line: 9
+    Warning (13410): Pin "ula_out[16]" is stuck at GND File: /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/cpu.vhd Line: 9
+    Warning (13410): Pin "ula_out[17]" is stuck at GND File: /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/cpu.vhd Line: 9
+    Warning (13410): Pin "ula_out[18]" is stuck at GND File: /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/cpu.vhd Line: 9
+    Warning (13410): Pin "ula_out[19]" is stuck at GND File: /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/cpu.vhd Line: 9
+    Warning (13410): Pin "ula_out[20]" is stuck at GND File: /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/cpu.vhd Line: 9
+    Warning (13410): Pin "ula_out[21]" is stuck at GND File: /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/cpu.vhd Line: 9
+    Warning (13410): Pin "ula_out[22]" is stuck at GND File: /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/cpu.vhd Line: 9
+    Warning (13410): Pin "ula_out[23]" is stuck at GND File: /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/cpu.vhd Line: 9
+    Warning (13410): Pin "ula_out[24]" is stuck at GND File: /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/cpu.vhd Line: 9
+    Warning (13410): Pin "ula_out[25]" is stuck at GND File: /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/cpu.vhd Line: 9
+    Warning (13410): Pin "ula_out[26]" is stuck at GND File: /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/cpu.vhd Line: 9
+    Warning (13410): Pin "ula_out[27]" is stuck at GND File: /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/cpu.vhd Line: 9
+    Warning (13410): Pin "ula_out[28]" is stuck at GND File: /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/cpu.vhd Line: 9
+    Warning (13410): Pin "ula_out[29]" is stuck at GND File: /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/cpu.vhd Line: 9
+    Warning (13410): Pin "ula_out[30]" is stuck at GND File: /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/cpu.vhd Line: 9
+    Warning (13410): Pin "ula_out[31]" is stuck at GND File: /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/cpu.vhd Line: 9
+    Warning (13410): Pin "control_points_pin[0]" is stuck at GND File: /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/cpu.vhd Line: 10
+    Warning (13410): Pin "control_points_pin[1]" is stuck at GND File: /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/cpu.vhd Line: 10
+    Warning (13410): Pin "control_points_pin[2]" is stuck at GND File: /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/cpu.vhd Line: 10
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 917 registers lost all their fanouts during netlist optimizations.
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 48 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 1 input pins
+    Info (21059): Implemented 36 output pins
+    Info (21061): Implemented 11 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 41 warnings
+    Info: Peak virtual memory: 524 megabytes
+    Info: Processing ended: Tue Oct 27 17:40:11 2020
+    Info: Elapsed time: 00:00:11
+    Info: Total CPU time (on all processors): 00:00:31
+
+

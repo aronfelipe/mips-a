@@ -1,0 +1,37 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+-- Decidimos fazer nossa unidade de controle baseada em uma ROM.
+-- ROM Control Unit.
+
+entity control_unit_rom is
+   generic (
+          data_width: natural := 2;
+          address_width: natural := 6
+    );
+   port (
+          address : in std_logic_vector (address_width-1 DOWNTO 0);
+          data_out : out std_logic_vector (data_width-1 DOWNTO 0)
+    );
+end entity;
+
+architecture rtl of control_unit_rom is
+
+  type memory_block is array(0 TO 2**address_width - 1) of std_logic_vector(data_width-1 DOWNTO 0);
+
+  function init_memory
+        return memory_block is variable tmp : memory_block := (others => (others => '0'));
+  begin
+        -- Inicializa os endereços:
+        tmp(0) := "0000000000"; -- NOP
+        tmp(1) := "0011011010"; -- LOAD
+
+        return tmp;
+    end init_memory;
+
+    signal data_out_memory_rom : memory_block := init_memory;
+
+begin
+    data_out <= data_out_memory_rom (to_integer(unsigned(address)));
+end architecture;

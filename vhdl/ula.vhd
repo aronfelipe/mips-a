@@ -1,0 +1,59 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;    -- Biblioteca IEEE para funções aritméticas
+
+entity ula is
+    generic
+    (
+        data_length : natural := 32
+    );
+    port
+    (
+	 -- Definimos os pinos de entrada e saida da ULA.
+      ula_in_a, ula_in_b:  in STD_LOGIC_VECTOR((data_length-1) downto 0);
+      operation:  in STD_LOGIC_VECTOR(2 downto 0);
+      ula_out:    out STD_LOGIC_VECTOR((data_length-1) downto 0);
+      zero_flag: out std_logic
+    );
+end entity;
+
+architecture rtl of ula is
+  constant zero : std_logic_vector(data_length-1 downto 0) := (others => '0');
+  
+  -- Dependendo da operacao que chega no seletor da ULA uma das operacoes a seguir sera retornada.
+
+   signal add :      STD_LOGIC_VECTOR((data_length-1) downto 0);
+   signal sub : STD_LOGIC_VECTOR((data_length-1) downto 0);
+   signal op_and :    STD_LOGIC_VECTOR((data_length-1) downto 0);
+   signal op_or :     STD_LOGIC_VECTOR((data_length-1) downto 0);
+   signal op_xor :    STD_LOGIC_VECTOR((data_length-1) downto 0);
+   signal op_not :    STD_LOGIC_VECTOR((data_length-1) downto 0);
+
+    begin
+	 
+		-- Todas as operacoes sao realizadas.
+		
+      add      <= STD_LOGIC_VECTOR(unsigned(ula_in_a) + unsigned(ula_in_b));
+      sub <= STD_LOGIC_VECTOR(unsigned(ula_in_a) - unsigned(ula_in_b));
+      op_and    <= ula_in_a and ula_in_b;
+      op_or     <= ula_in_a or ula_in_b;
+      op_xor    <= ula_in_a xor ula_in_b;
+      op_not    <= not ula_in_a;
+
+		-- A saida sera selecionada de acordo com o seletor.
+
+      ula_out <= add when (operation = "000") else
+          sub when (operation = "001") else
+          ula_in_a when  (operation = "010") else
+          ula_in_b when  (operation = "011") else
+          op_xor when    (operation = "100") else
+          op_not when    (operation = "101") else
+          op_and when    (operation = "110") else
+          op_or when     (operation = "111") else
+          ula_in_a;      -- outra opcao: saida = entradaA
+
+		-- A flagZero e utilizada para operacoes do tipo CMP. No caso da entrada A ser igual a entrada B a saida da flagZero e 1. Caso contrario
+		-- e zero.
+      zero_flag <= '1' when unsigned(ula_in_a) = unsigned(ula_in_b) else '0';
+
+end architecture;

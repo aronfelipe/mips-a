@@ -1,0 +1,34 @@
+library IEEE;
+use IEEE.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity rom is
+   generic (
+          data_width: natural := 32;
+          address_width: natural := 10
+    );
+   port (
+          address : in std_logic_vector (addrWidth-1 DOWNTO 0);
+          data : out std_logic_vector (dataWidth-1 DOWNTO 0)
+    );
+end entity;
+
+architecture rtl of rom is
+
+type memory_block is array(0 TO 2**addrWidth - 1) of std_logic_vector(dataWidth-1 DOWNTO 0);
+
+function init_memory
+	  return memory_block is variable tmp : memory_block := (others => (others => '0'));
+begin
+	  -- Inicializa os endereços:
+	  -- Cada instrucao em binario contem um comentario com sua equivalente em assembly.
+	  tmp(0) := "0000000000000000";
+
+	 return tmp;
+ end init_memory;
+
+ signal rom_data : memory_block := init_memory;
+
+begin
+    data <= rom_data (to_integer(unsigned(address)));
+end architecture;

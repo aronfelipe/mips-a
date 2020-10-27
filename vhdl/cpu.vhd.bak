@@ -1,0 +1,23 @@
+
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity cpu is
+  generic ( data_length : natural := 32);
+  port (
+		clock: STD_LOGIC
+  );
+end entity;
+
+architecture rtl of cpu is
+
+begin
+control_unit_rom : entity work.control_unit_rom   generic map (data_width => 4, address_width => 6)
+          port map (address => opcode, data_out => control_points);
+
+data_flow 
+ula : entity work.ula  generic map(data_length => 32)
+          port map (ula_in_a => registers_out_a_to_ula, ula_in_b => registers_out_b_to_ula, ula_out => ula_to_registers,
+			 operation => ula_operation, zero_flag => zero_flag);
+		
+end architecture;
