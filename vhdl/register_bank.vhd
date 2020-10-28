@@ -45,7 +45,7 @@ begin
         end if;
     end process;
 
---    -- IF endereco = 0 : retorna ZERO
+    -- IF endereco = 0 : retorna ZERO
      process(all) is
      begin
          if (unsigned(address_a_rt) = 0) then
@@ -53,14 +53,10 @@ begin
          else
             out_a <= registrador(to_integer(unsigned(address_a_rt)));
          end if;
---         if (unsigned(address_b_rs) = 0) then
---            out_b <= (others => '0');
---         else
---            out_b <= registrador(to_integer(unsigned(address_b_rs)));
---        end if;
+         if (unsigned(address_b_rs) = 0) then
+            out_b <= (others => '0');
+         else
+            out_b <= registrador(to_integer(unsigned(address_b_rs)));
+        end if;
      end process;
-
---out_a <= "00000000000000000000000000000010";
-out_b <= "00000000000000000000000000000100";
-
 end architecture;
