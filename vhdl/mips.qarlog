@@ -1,7 +1,7 @@
 Quartus Prime Archive log --	/home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/mips.qarlog
 
 Archive:	/home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/mips.qar
-Date:		Tue Oct 27 19:15:56 2020
+Date:		Sat Oct 31 10:08:49 2020
 Quartus Prime		20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 	=========== Files Selected: ===========
@@ -13,11 +13,15 @@ Quartus Prime		20.1.0 Build 711 06/05/2020 SJ Lite Edition
 /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/generic_register.vhd
 /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/mips.qpf
 /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/mips.qsf
+/home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/mux.vhd
+/home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/ram.vhd
 /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/register_bank.vhd
 /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/rom.vhd
+/home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/shift_left_operator.vhd
+/home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/signal_extensor.vhd
 /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/ula.vhd
 /home/felipe/intelFPGA_lite/20.1/quartus/linux64/assignment_defaults.qdf
-	======= Total: 12 files to archive =======
+	======= Total: 16 files to archive =======
 
 	================ Status: ===============
 All files archived successfully.

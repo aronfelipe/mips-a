@@ -18,6 +18,7 @@ signal funct: STD_LOGIC_VECTOR (5 downto 0);
 
 begin
 control_points_pin <= control_points;
+
 control_unit_rom : entity work.control_unit_rom   generic map (data_width => 4, address_width => 6)
           port map (address => funct, data_out => control_points);
 

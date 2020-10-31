@@ -22,7 +22,9 @@ signal zero_flag : STD_LOGIC;
 signal ula_to_registers: STD_LOGIC_VECTOR(data_length-1 downto 0);
 signal registers_out_a_to_ula : STD_LOGIC_VECTOR(data_length -1 downto 0);
 signal registers_out_b_to_ula : STD_LOGIC_VECTOR(data_length -1 downto 0);
+signal extended_imediate : std_logic_vector(data_length-1 downto 0);
 
+signal shifted_signal_to_adder : std_logic_vector(data_length-1 downto 0);
 
 alias enable_write_in_c: STD_LOGIC is control_points(3);
 alias ula_operation: STD_LOGIC_VECTOR (2 downto 0) is control_points(2 downto 0);
@@ -30,6 +32,8 @@ alias ula_operation: STD_LOGIC_VECTOR (2 downto 0) is control_points(2 downto 0)
 alias signal_rs: STD_LOGIC_VECTOR (4 downto 0) is instruction(25 downto 21);
 alias signal_rt: STD_LOGIC_VECTOR (4 downto 0) is instruction(20 downto 16);
 alias signal_rd: STD_LOGIC_VECTOR (4 downto 0) is instruction(15 downto 11);
+
+alias imediate : std_logic_vector(15 downto 0) is instruction(15 downto 0);
 
 begin
   
@@ -54,5 +58,11 @@ register_bank : entity work.register_bank generic map(data_length => 32)
          port map ( clock => clock, address_a_rt => signal_rt, address_b_rs => signal_rs, address_c_rd => signal_rd,
 			data_to_write_c_rd => ula_to_registers, write_c_rd => enable_write_in_c, out_a => registers_out_a_to_ula,
 			out_b => registers_out_b_to_ula);
+
+signal_extensor : entity work.signal_extensor   generic map (data_length_in => 16, data_length_out => 32)
+          port map (signal_externsor_in => imediate, signal_externsor_out =>  extended_imediate);
 			 
+shift_left_operator : entity work.shift_left_operator generic map(data_width => 32)
+port map( data_in => extended_imediate, data_out => shifted_signal_to_adder);
+
 end architecture;

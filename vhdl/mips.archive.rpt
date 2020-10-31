@@ -1,5 +1,5 @@
 Archive Project report for mips
-Tue Oct 27 19:15:56 2020
+Sat Oct 31 10:08:49 2020
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -36,7 +36,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------+
 ; Archive Project Summary                                        ;
 +------------------------+---------------------------------------+
-; Archive Project Status ; Successful - Tue Oct 27 19:15:56 2020 ;
+; Archive Project Status ; Successful - Sat Oct 31 10:08:49 2020 ;
 ; Revision Name          ; mips                                  ;
 ; Top-level Entity Name  ; cpu                                   ;
 ; Family                 ; Cyclone V                             ;
@@ -60,9 +60,9 @@ Info: ----------------------------------------------------------
 Info: Generated report 'mips.archive.rpt'
 Info (23030): Evaluation of Tcl script /home/felipe/intelFPGA_lite/20.1/quartus/common/tcl/apps/qpm/qar.tcl was successful
 Info: Quartus Prime Shell was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 605 megabytes
-    Info: Processing ended: Tue Oct 27 19:15:56 2020
-    Info: Elapsed time: 00:00:01
+    Info: Peak virtual memory: 607 megabytes
+    Info: Processing ended: Sat Oct 31 10:08:49 2020
+    Info: Elapsed time: 00:00:00
     Info: Total CPU time (on all processors): 00:00:01
 
 
@@ -79,8 +79,12 @@ Info: Quartus Prime Shell was successful. 0 errors, 1 warning
 ; generic_register.vhd                                                     ;
 ; mips.qpf                                                                 ;
 ; mips.qsf                                                                 ;
+; mux.vhd                                                                  ;
+; ram.vhd                                                                  ;
 ; register_bank.vhd                                                        ;
 ; rom.vhd                                                                  ;
+; shift_left_operator.vhd                                                  ;
+; signal_extensor.vhd                                                      ;
 ; ula.vhd                                                                  ;
 ; Waveform.vwf                                                             ;
 +--------------------------------------------------------------------------+
