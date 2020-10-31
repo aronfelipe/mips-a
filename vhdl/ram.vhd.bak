@@ -6,17 +6,17 @@ entity ram IS
    generic (
           data_width: natural := 32;
           address_width: natural := 32;
-			 memory_address_width:  natural := 9); -- 512 posicoes de 32 bits cada
+			 memory_address_width:  natural := 9 -- 512 posicoes de 32 bits cada
    port ( clock      : IN  STD_LOGIC;
-          address : IN  STD_LOGIC_VECTOR (address_width-1 DOWNTO 0);
-          ram_in  : in std_logic_vector(data_width-1 downto 0);
-          ram_out : out std_logic_vector(data_width-1 downto 0);
+          address : IN  STD_LOGIC_VECTOR (addrWidth-1 DOWNTO 0);
+          ram_in  : in std_logic_vector(dataWidth-1 downto 0);
+          ram_out : out std_logic_vector(dataWidth-1 downto 0);
           we : in std_logic := '0'
         );
 end entity;
 
 architecture rtl OF ram IS
-  type memory_block IS ARRAY(0 TO 2**memory_address_width - 1) OF std_logic_vector(data_width-1 DOWNTO 0);
+  type memory_block IS ARRAY(0 TO 2**memory_address_width - 1) OF std_logic_vector(dataWidth-1 DOWNTO 0);
 
   signal memRAM: memory_block;
 --  Caso queira inicializar a RAM (para testes):

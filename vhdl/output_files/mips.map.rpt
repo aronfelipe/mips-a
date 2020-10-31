@@ -1,5 +1,5 @@
 Analysis & Synthesis report for mips
-Tue Oct 27 19:15:20 2020
+Sat Oct 31 10:16:05 2020
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -23,13 +23,16 @@ Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
  15. Parameter Settings for User Entity Instance: data_flow:data_flow|rom:rom
  16. Parameter Settings for User Entity Instance: data_flow:data_flow|ula:ula
  17. Parameter Settings for User Entity Instance: data_flow:data_flow|register_bank:register_bank
- 18. Port Connectivity Checks: "data_flow:data_flow|ula:ula"
- 19. Port Connectivity Checks: "data_flow:data_flow|rom:rom"
- 20. Port Connectivity Checks: "data_flow:data_flow|adder:adder"
- 21. Port Connectivity Checks: "data_flow:data_flow|generic_register:pc"
- 22. Post-Synthesis Netlist Statistics for Top Partition
- 23. Elapsed Time Per Partition
- 24. Analysis & Synthesis Messages
+ 18. Parameter Settings for User Entity Instance: data_flow:data_flow|signal_extensor:signal_extensor
+ 19. Parameter Settings for User Entity Instance: data_flow:data_flow|shift_left_operator:shift_left_operator
+ 20. Port Connectivity Checks: "data_flow:data_flow|shift_left_operator:shift_left_operator"
+ 21. Port Connectivity Checks: "data_flow:data_flow|ula:ula"
+ 22. Port Connectivity Checks: "data_flow:data_flow|rom:rom"
+ 23. Port Connectivity Checks: "data_flow:data_flow|adder:adder"
+ 24. Port Connectivity Checks: "data_flow:data_flow|generic_register:pc"
+ 25. Post-Synthesis Netlist Statistics for Top Partition
+ 26. Elapsed Time Per Partition
+ 27. Analysis & Synthesis Messages
 
 
 
@@ -56,7 +59,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Tue Oct 27 19:15:20 2020       ;
+; Analysis & Synthesis Status     ; Successful - Sat Oct 31 10:16:05 2020       ;
 ; Quartus Prime Version           ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name                   ; mips                                        ;
 ; Top-level Entity Name           ; cpu                                         ;
@@ -182,20 +185,22 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                            ;
-+----------------------------------+-----------------+-----------------+----------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                     ; Library ;
-+----------------------------------+-----------------+-----------------+----------------------------------------------------------------------------------+---------+
-; control_unit_rom.vhd             ; yes             ; User VHDL File  ; /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/control_unit_rom.vhd ;         ;
-; data_flow.vhd                    ; yes             ; User VHDL File  ; /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/data_flow.vhd        ;         ;
-; rom.vhd                          ; yes             ; User VHDL File  ; /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/rom.vhd              ;         ;
-; generic_register.vhd             ; yes             ; User VHDL File  ; /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/generic_register.vhd ;         ;
-; adder.vhd                        ; yes             ; User VHDL File  ; /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/adder.vhd            ;         ;
-; register_bank.vhd                ; yes             ; User VHDL File  ; /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/register_bank.vhd    ;         ;
-; ula.vhd                          ; yes             ; User VHDL File  ; /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/ula.vhd              ;         ;
-; cpu.vhd                          ; yes             ; User VHDL File  ; /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/cpu.vhd              ;         ;
-+----------------------------------+-----------------+-----------------+----------------------------------------------------------------------------------+---------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                               ;
++----------------------------------+-----------------+-----------------+-------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                        ; Library ;
++----------------------------------+-----------------+-----------------+-------------------------------------------------------------------------------------+---------+
+; shift_left_operator.vhd          ; yes             ; User VHDL File  ; /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/shift_left_operator.vhd ;         ;
+; signal_extensor.vhd              ; yes             ; User VHDL File  ; /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/signal_extensor.vhd     ;         ;
+; control_unit_rom.vhd             ; yes             ; User VHDL File  ; /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/control_unit_rom.vhd    ;         ;
+; data_flow.vhd                    ; yes             ; User VHDL File  ; /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/data_flow.vhd           ;         ;
+; rom.vhd                          ; yes             ; User VHDL File  ; /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/rom.vhd                 ;         ;
+; generic_register.vhd             ; yes             ; User VHDL File  ; /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/generic_register.vhd    ;         ;
+; adder.vhd                        ; yes             ; User VHDL File  ; /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/adder.vhd               ;         ;
+; register_bank.vhd                ; yes             ; User VHDL File  ; /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/register_bank.vhd       ;         ;
+; ula.vhd                          ; yes             ; User VHDL File  ; /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/ula.vhd                 ;         ;
+; cpu.vhd                          ; yes             ; User VHDL File  ; /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/cpu.vhd                 ;         ;
++----------------------------------+-----------------+-----------------+-------------------------------------------------------------------------------------+---------+
 
 
 +--------------------------------------------------------------------------------------+
@@ -1343,6 +1348,36 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
++--------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: data_flow:data_flow|signal_extensor:signal_extensor ;
++-----------------+-------+------------------------------------------------------------------------+
+; Parameter Name  ; Value ; Type                                                                   ;
++-----------------+-------+------------------------------------------------------------------------+
+; data_length_in  ; 16    ; Signed Integer                                                         ;
+; data_length_out ; 32    ; Signed Integer                                                         ;
++-----------------+-------+------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: data_flow:data_flow|shift_left_operator:shift_left_operator ;
++----------------+-------+---------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                            ;
++----------------+-------+---------------------------------------------------------------------------------+
+; data_width     ; 32    ; Signed Integer                                                                  ;
++----------------+-------+---------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "data_flow:data_flow|shift_left_operator:shift_left_operator"                            ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port     ; Type   ; Severity ; Details                                                                             ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; data_out ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
 +---------------------------------------------------------------------------------------------------------------------+
 ; Port Connectivity Checks: "data_flow:data_flow|ula:ula"                                                             ;
 +-----------+--------+----------+-------------------------------------------------------------------------------------+
@@ -1358,7 +1393,6 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Port                 ; Type   ; Severity ; Details                                                                             ;
 +----------------------+--------+----------+-------------------------------------------------------------------------------------+
 ; rom_data_out[31..26] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; rom_data_out[10..6]  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
 +----------------------+--------+----------+-------------------------------------------------------------------------------------+
 
 
@@ -1413,7 +1447,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:01     ;
+; Top            ; 00:00:00     ;
 +----------------+--------------+
 
 
@@ -1423,10 +1457,23 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
-    Info: Processing started: Tue Oct 27 19:15:05 2020
+    Info: Processing started: Sat Oct 31 10:15:54 2020
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off mips -c mips
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file shift_left_operator.vhd
+    Info (12022): Found design unit 1: shift_left_operator-rtl File: /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/shift_left_operator.vhd Line: 16
+    Info (12023): Found entity 1: shift_left_operator File: /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/shift_left_operator.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file ram.vhd
+    Info (12022): Found design unit 1: ram-rtl File: /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/ram.vhd Line: 18
+    Info (12023): Found entity 1: ram File: /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/ram.vhd Line: 5
+Warning (12090): Entity "mux" obtained from "mux.vhd" instead of from Quartus Prime megafunction library File: /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/mux.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file mux.vhd
+    Info (12022): Found design unit 1: mux-rtl File: /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/mux.vhd Line: 15
+    Info (12023): Found entity 1: mux File: /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/mux.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file signal_extensor.vhd
+    Info (12022): Found design unit 1: signal_extensor-rtl File: /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/signal_extensor.vhd Line: 19
+    Info (12023): Found entity 1: signal_extensor File: /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/signal_extensor.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file control_unit_rom.vhd
     Info (12022): Found design unit 1: control_unit_rom-rtl File: /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/control_unit_rom.vhd Line: 19
     Info (12023): Found entity 1: control_unit_rom File: /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/control_unit_rom.vhd Line: 8
@@ -1452,15 +1499,18 @@ Info (12021): Found 2 design units, including 1 entities, in source file cpu.vhd
     Info (12022): Found design unit 1: cpu-rtl File: /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/cpu.vhd Line: 14
     Info (12023): Found entity 1: cpu File: /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/cpu.vhd Line: 5
 Info (12127): Elaborating entity "cpu" for the top level hierarchy
-Info (12128): Elaborating entity "control_unit_rom" for hierarchy "control_unit_rom:control_unit_rom" File: /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/cpu.vhd Line: 21
-Info (12128): Elaborating entity "data_flow" for hierarchy "data_flow:data_flow" File: /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/cpu.vhd Line: 24
+Info (12128): Elaborating entity "control_unit_rom" for hierarchy "control_unit_rom:control_unit_rom" File: /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/cpu.vhd Line: 22
+Info (12128): Elaborating entity "data_flow" for hierarchy "data_flow:data_flow" File: /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/cpu.vhd Line: 25
 Warning (10036): Verilog HDL or VHDL warning at data_flow.vhd(21): object "zero_flag" assigned a value but never read File: /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/data_flow.vhd Line: 21
-Info (12128): Elaborating entity "generic_register" for hierarchy "data_flow:data_flow|generic_register:pc" File: /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/data_flow.vhd Line: 40
-Info (12128): Elaborating entity "adder" for hierarchy "data_flow:data_flow|adder:adder" File: /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/data_flow.vhd Line: 43
-Info (12128): Elaborating entity "rom" for hierarchy "data_flow:data_flow|rom:rom" File: /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/data_flow.vhd Line: 46
+Warning (10036): Verilog HDL or VHDL warning at data_flow.vhd(27): object "shifted_signal_to_adder" assigned a value but never read File: /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/data_flow.vhd Line: 27
+Info (12128): Elaborating entity "generic_register" for hierarchy "data_flow:data_flow|generic_register:pc" File: /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/data_flow.vhd Line: 44
+Info (12128): Elaborating entity "adder" for hierarchy "data_flow:data_flow|adder:adder" File: /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/data_flow.vhd Line: 47
+Info (12128): Elaborating entity "rom" for hierarchy "data_flow:data_flow|rom:rom" File: /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/data_flow.vhd Line: 50
 Warning (10541): VHDL Signal Declaration warning at rom.vhd(20): used implicit default value for signal "data_rom" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/rom.vhd Line: 20
-Info (12128): Elaborating entity "ula" for hierarchy "data_flow:data_flow|ula:ula" File: /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/data_flow.vhd Line: 49
-Info (12128): Elaborating entity "register_bank" for hierarchy "data_flow:data_flow|register_bank:register_bank" File: /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/data_flow.vhd Line: 53
+Info (12128): Elaborating entity "ula" for hierarchy "data_flow:data_flow|ula:ula" File: /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/data_flow.vhd Line: 53
+Info (12128): Elaborating entity "register_bank" for hierarchy "data_flow:data_flow|register_bank:register_bank" File: /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/data_flow.vhd Line: 57
+Info (12128): Elaborating entity "signal_extensor" for hierarchy "data_flow:data_flow|signal_extensor:signal_extensor" File: /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/data_flow.vhd Line: 62
+Info (12128): Elaborating entity "shift_left_operator" for hierarchy "data_flow:data_flow|shift_left_operator:shift_left_operator" File: /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/data_flow.vhd Line: 65
 Info (276014): Found 2 instances of uninferred RAM logic
     Info (276007): RAM logic "data_flow:data_flow|register_bank:register_bank|registrador" is uninferred due to asynchronous read logic File: /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/register_bank.vhd Line: 36
     Info (276004): RAM logic "control_unit_rom:control_unit_rom|data_out_memory_rom" is uninferred due to inappropriate RAM size File: /home/felipe/Documents/insper/descomp/projeto2-descomp/vhdl/control_unit_rom.vhd Line: 48
@@ -1479,10 +1529,10 @@ Info (21057): Implemented 115 device resources after synthesis - the final resou
     Info (21058): Implemented 1 input pins
     Info (21059): Implemented 36 output pins
     Info (21061): Implemented 78 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 10 warnings
-    Info: Peak virtual memory: 526 megabytes
-    Info: Processing ended: Tue Oct 27 19:15:20 2020
-    Info: Elapsed time: 00:00:15
-    Info: Total CPU time (on all processors): 00:00:44
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 12 warnings
+    Info: Peak virtual memory: 528 megabytes
+    Info: Processing ended: Sat Oct 31 10:16:05 2020
+    Info: Elapsed time: 00:00:11
+    Info: Total CPU time (on all processors): 00:00:31
 
 
